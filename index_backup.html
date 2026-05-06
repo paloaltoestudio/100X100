@@ -6,7 +6,7 @@
   <title>100×100 — Líderes · Medellín 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400;1,14..32,700;1,14..32,800&display=swap" rel="stylesheet">
   <style>
     /* ─────────────────────────────────────────────
        100x100 — Landing v2 vanilla
@@ -16,28 +16,28 @@
     html, body { margin: 0; padding: 0; }
 
     .lp {
-      --magenta:   #FF641F;
-      --magenta-d: #c44a10;
-      --magenta-x: #8f3208;
-      --coral:     #F79D7B;
-      --peach:     #FFBE2F;
-      --blue:      #80ACEE;
-      --sky:       #FCC3EC;
-      --cream:     #F5F0E8;
-      --cream-2:   #EBE5DC;
-      --ink:       #1A1208;
-      --mute:      #6B5D4F;
+      --magenta:   #A11A99;
+      --magenta-d: #7B0F7E;
+      --magenta-x: #5A0961;
+      --coral:     #FF6E5A;
+      --peach:     #F8A05D;
+      --blue:      #3D6BFF;
+      --sky:       #7CC1FF;
+      --cream:     #FAF1E1;
+      --cream-2:   #F4E8D2;
+      --ink:       #1A0F1A;
+      --mute:      #6B5560;
 
-      --grad-hero: linear-gradient(95deg, #FF641F 0%, #FFBE2F 55%, #FCC3EC 100%);
-      --grad-soft: linear-gradient(95deg, #FCC3EC 0%, #F79D7B 50%, #FFBE2F 100%);
-      --grad-deep: linear-gradient(180deg, #FF641F 0%, #8f3208 100%);
-      --grad-prog: linear-gradient(120deg, #FF641F 0%, #FFBE2F 45%, #80ACEE 100%);
+      --grad-hero: linear-gradient(95deg, #3D6BFF 0%, #FF6E5A 55%, #E8439B 100%);
+      --grad-soft: linear-gradient(95deg, #7CC1FF 0%, #FFB48A 50%, #FF8FB8 100%);
+      --grad-deep: linear-gradient(180deg, #A11A99 0%, #5A0961 100%);
+      --grad-prog: linear-gradient(120deg, #E8439B 0%, #FFB48A 45%, #7CC1FF 100%);
 
       --r-lg:   28px;
       --r-md:   18px;
       --r-pill: 999px;
 
-      font-family: 'Montserrat', system-ui, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-feature-settings: 'cv11','ss01';
       color: var(--ink);
       background: var(--cream);
@@ -48,7 +48,7 @@
     .lp ::selection { background: var(--magenta); color: #fff; }
 
     .lp h1, .lp h2, .lp h3, .lp h4, .lp h5, .lp h6 {
-      font-family: 'Parkinsans', system-ui, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 700; letter-spacing: -0.025em;
       line-height: 1.02; margin: 0; text-wrap: balance;
     }
@@ -82,10 +82,14 @@
       align-items: center; padding: 18px 28px; gap: 24px;
     }
     .lp .logo {
-      display: inline-flex; align-items: center;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 22px; letter-spacing: -0.03em;
+      color: var(--magenta); text-decoration: none;
     }
-    .lp .logo img { height: 36px; width: auto; display: block; }
+    .lp .logo .x {
+      display: inline-block; width: 22px; height: 22px;
+      border-radius: 50%; background: var(--grad-hero);
+    }
     .lp .nav { display: flex; gap: 4px; justify-content: center; font-size: 14px; }
     .lp .nav a {
       color: var(--ink); text-decoration: none; padding: 8px 14px;
@@ -145,20 +149,19 @@
       letter-spacing: -0.04em; line-height: 0.95; margin: 0 0 28px; max-width: 16ch;
     }
     .hero h1 .grad {
-      font-family: 'Parkinsans', system-ui, sans-serif;
       background: var(--grad-hero);
       -webkit-background-clip: text; background-clip: text;
       color: transparent; font-style: italic; font-weight: 800;
     }
     .hero h1 small {
       display: block; font-size: 0.32em; font-weight: 500; color: var(--ink);
-      margin-top: 18px; letter-spacing: -0.015em; line-height: 1.2;
+      margin-top: 18px; letter-spacing: -0.015em; line-height: 1.2; max-width: 22ch;
     }
     .hero-grid {
       display: grid; grid-template-columns: 1.4fr 1fr;
-      gap: 40px; align-items: center; margin-bottom: 90px;
+      gap: 40px; align-items: end; margin-bottom: 90px;
     }
-    .hero-sub { font-size: 17px; line-height: 1.55; color: var(--ink); margin: 0 0 24px; }
+    .hero-sub { font-size: 17px; line-height: 1.55; color: var(--ink); max-width: 42ch; margin: 0 0 24px; }
     .hero-sub b { color: var(--magenta); font-weight: 700; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .hero-cta .meta { font-size: 12px; color: var(--mute); margin-left: 8px; display: inline-flex; flex-direction: column; }
@@ -195,7 +198,7 @@
 
     /* ─── COUNTDOWN ─── */
     .countdown-stripe {
-      margin: 56px 28px 0; border-radius: var(--r-lg); background: #FF641F; color: #fff;
+      margin: 56px 28px 0; border-radius: var(--r-lg); background: var(--grad-deep); color: #fff;
       padding: 24px 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
     }
     .countdown-stripe .label { display: flex; flex-direction: column; gap: 4px; }
@@ -203,7 +206,7 @@
     .countdown-stripe .label .big { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
     .countdown-stripe .label .big em {
       font-style: normal;
-      background: #fff;
+      background: linear-gradient(90deg, #FFB48A 0%, #FF8FB8 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
     .countdown-stripe .clock { display: flex; gap: 10px; }
@@ -217,7 +220,7 @@
 
     /* ─── SECTION ─── */
     .sec { padding: 96px 28px; position: relative; }
-    .sec.gradient-deep { background: #FF641F; color: #fff; }
+    .sec.gradient-deep { background: var(--grad-deep); color: #fff; }
     .sec.gradient-deep h2, .sec.gradient-deep h3 { color: #fff; }
     .sec.gradient-deep .sec-eyebrow { color: rgba(255,255,255,0.7); }
     .sec.gradient-prog { background: var(--grad-prog); color: #fff; }
@@ -235,7 +238,7 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 32px;
       box-shadow: 0 8px 40px -16px rgba(0,0,0,0.08);
     }
-    .about-card .lead { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 0; margin-bottom: 10px; }
+    .about-card .lead { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 0; max-width: 18ch; }
     .about-card p { font-size: 16px; color: var(--ink); line-height: 1.6; margin: 0 0 16px; }
     .about-card .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     .about-card .tag { font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: var(--r-pill); background: color-mix(in oklab, var(--magenta) 8%, transparent); color: var(--magenta); }
@@ -315,7 +318,7 @@
     .timeline-card { background: #fff; border-radius: var(--r-lg); padding: 8px; box-shadow: 0 8px 40px -16px rgba(0,0,0,0.08); }
     .timeline-card .row { display: grid; grid-template-columns: 130px 1fr auto; gap: 16px; align-items: center; padding: 18px 24px; border-radius: var(--r-md); border-bottom: 1px solid color-mix(in oklab, var(--ink) 6%, transparent); }
     .timeline-card .row:last-child { border-bottom: 0; }
-    .timeline-card .row.now { background: #FF641F; color: #fff; }
+    .timeline-card .row.now { background: var(--grad-hero); color: #fff; }
     .timeline-card .row .date { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--magenta); }
     .timeline-card .row.now .date { color: #fff; }
     .timeline-card .row .name { font-size: 16px; font-weight: 500; color: var(--ink); }
@@ -332,8 +335,7 @@
     /* Step indicators header */
     .e-form__indicators {
       display: flex; align-items: center; flex-wrap: wrap;
-      padding: 28px 36px; background: #fff; gap: 4px;
-      border-bottom: 1px solid #ccc;
+      padding: 28px 36px; background: var(--grad-hero); gap: 4px;
     }
     .e-form__indicators__indicator {
       display: flex; align-items: center; gap: 10px;
@@ -345,14 +347,14 @@
       width: 30px; height: 30px; border-radius: 50%;
       background: rgba(255,255,255,0.22);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 13px; color: #000; flex-shrink: 0;
+      font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0;
       transition: background .25s;
     }
     .e-form__indicators__indicator--state-active .e-form__indicators__indicator__number {
       background: #fff; color: var(--magenta);
     }
     .e-form__indicators__indicator__label {
-      font-size: 13px; font-weight: 600; color: #000; white-space: nowrap;
+      font-size: 13px; font-weight: 600; color: #fff; white-space: nowrap;
     }
     .e-form__indicators__indicator__separator {
       color: rgba(255,255,255,0.35); font-size: 16px; margin: 0 6px; flex-shrink: 0;
@@ -451,14 +453,14 @@
     }
     .sched-acc[open] .sched-chevron { transform: rotate(-90deg); }
     /* per-type colors */
-    .sched-acc--presencial summary { background: rgba(255,255,255,0.18); }
-    .sched-acc--presencial summary:hover { background: rgba(255,255,255,0.26); }
+    .sched-acc--presencial summary { background: rgba(255,110,90,0.18); }
+    .sched-acc--presencial summary:hover { background: rgba(255,110,90,0.26); }
     .sched-acc--presencial .sched-icon { background: var(--coral); }
-    .sched-acc--virtual summary { background: rgba(255,255,255,0.18); }
-    .sched-acc--virtual summary:hover { background: rgba(255,255,255,0.26); }
+    .sched-acc--virtual summary { background: rgba(61,107,255,0.18); }
+    .sched-acc--virtual summary:hover { background: rgba(61,107,255,0.26); }
     .sched-acc--virtual .sched-icon { background: var(--blue); }
-    .sched-acc--sostenimiento summary { background: rgba(255,255,255,0.18); }
-    .sched-acc--sostenimiento summary:hover { background: rgba(255,255,255,0.26); }
+    .sched-acc--sostenimiento summary { background: rgba(161,26,153,0.28); }
+    .sched-acc--sostenimiento summary:hover { background: rgba(161,26,153,0.38); }
     .sched-acc--sostenimiento .sched-icon { background: var(--magenta); }
     /* body */
     .sched-acc-body {
@@ -531,7 +533,8 @@
     /* ─── FOOTER ─── */
     .foot { background: var(--ink); color: rgba(255,255,255,0.78); padding: 64px 28px 28px; }
     .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    .foot-logo img { height: 56px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .foot-logo { font-size: 64px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; color: #fff; }
+    .foot-logo .x { color: var(--coral); font-style: italic; }
     .foot p { font-size: 13px; line-height: 1.6; margin: 18px 0 0; max-width: 38ch; color: rgba(255,255,255,0.62); }
     .foot h6 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
     .foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 13px; }
@@ -599,7 +602,7 @@
   <!-- ── 01 HEADER ── -->
   <header class="hdr">
     <div class="hdr-row">
-      <a href="#inicio" class="logo"><img src="logo.webp" alt="100×100"></a>
+      <a href="#inicio" class="logo"><span class="x"></span>100×100</a>
       <nav class="nav">
         <a href="#inicio" class="active">Inicio</a>
         <a href="#sobre">Sobre el programa</a>
@@ -614,13 +617,13 @@
     <div class="hero-grid">
       <div>
         <h1>
-          <span class="grad">100</span> líderes,<br>
+          <span class="grad">100</span> líderes.<br>
           <span class="grad">100</span> días.
           <small>Una ciudad que se transforma desde el <span class="accent line">cuidado</span>.</small>
         </h1>
         <p class="hero-sub">
           Muchos líderes llevan años sosteniendo procesos y personas sin espacios para detenerse, conectar y fortalecerse.
-          <b>Cien por cien</b> nace para acompañar ese trabajo con herramientas prácticas, conexión y trabajo colectivo.
+          <b>100×100</b> nace para acompañar ese trabajo con herramientas prácticas, conexión y trabajo colectivo.
         </p>
         <div class="hero-cta">
           <a href="#form" class="btn primary lg">Quiero participar <span class="arr">→</span></a>
@@ -884,7 +887,7 @@
   <section class="sec gradient-prog" id="form">
     <div class="sec-head">
       <span class="sec-eyebrow" style="color:rgba(255,255,255,0.85)">Formulario</span>
-      <h2 class="title" style="color:#fff">Postúlate a <span style="color:#fff;font-style:italic">100×100</span>.</h2>
+      <h2 class="title" style="color:#fff">Postúlate a <span style="color:#FFE0CC;font-style:italic">100×100</span>.</h2>
       <p class="sec-sub" style="color:rgba(255,255,255,0.92)">Este puede ser un espacio para fortalecer lo que ya vienes construyendo. La postulación se diligencia en 5 pasos cortos.</p>
     </div>
 
@@ -1161,7 +1164,7 @@
   <footer class="foot">
     <div class="foot-grid">
       <div>
-        <div class="foot-logo"><img src="logo.webp" alt="100×100"></div>
+        <div class="foot-logo">100<span class="x">×</span>100</div>
         <p>Programa gestado en El MED, liderado por Magna, monitoreado por Valor Sostenible, diseñado por Aldo Cívico, apoyado por Vibra en Alta y con impacto social de Selia y Oye.</p>
       </div>
       <div>
@@ -1188,13 +1191,14 @@
         <h6>Contacto</h6>
         <ul>
           <li><a href="mailto:hola@100x100.med">hola@100x100.med</a></li>
+          <li><a href="tel:+5740000000">+57 (4) 000 0000</a></li>
           <li><a href="#">@100x100.med</a></li>
           <li><a href="#">Política de datos</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bot">
-      <span>© 2026 · Programa cien por cien · Medellín</span>
+      <span>© 2026 · Programa 100×100 · Medellín</span>
       <span>Parte de El MED · somoselmed.com</span>
     </div>
   </footer>
