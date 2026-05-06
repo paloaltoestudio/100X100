@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100×100 — Líderes · Medellín 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400;1,14..32,700;1,14..32,800&display=swap" rel="stylesheet">
+  <style>
+    /* ─────────────────────────────────────────────
+       100x100 — Landing v2 vanilla
+       ───────────────────────────────────────────── */
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    .lp {
+      --magenta:   #A11A99;
+      --magenta-d: #7B0F7E;
+      --magenta-x: #5A0961;
+      --coral:     #FF6E5A;
+      --peach:     #F8A05D;
+      --blue:      #3D6BFF;
+      --sky:       #7CC1FF;
+      --cream:     #FAF1E1;
+      --cream-2:   #F4E8D2;
+      --ink:       #1A0F1A;
+      --mute:      #6B5560;
+
+      --grad-hero: linear-gradient(95deg, #3D6BFF 0%, #FF6E5A 55%, #E8439B 100%);
+      --grad-soft: linear-gradient(95deg, #7CC1FF 0%, #FFB48A 50%, #FF8FB8 100%);
+      --grad-deep: linear-gradient(180deg, #A11A99 0%, #5A0961 100%);
+      --grad-prog: linear-gradient(120deg, #E8439B 0%, #FFB48A 45%, #7CC1FF 100%);
+
+      --r-lg:   28px;
+      --r-md:   18px;
+      --r-pill: 999px;
+
+      font-family: 'Inter', system-ui, sans-serif;
+      font-feature-settings: 'cv11','ss01';
+      color: var(--ink);
+      background: var(--cream);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .lp ::selection { background: var(--magenta); color: #fff; }
+
+    .lp h1, .lp h2, .lp h3, .lp h4, .lp h5, .lp h6 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 700; letter-spacing: -0.025em;
+      line-height: 1.02; margin: 0; text-wrap: balance;
+    }
+
+    /* accent underline */
+    .lp .accent { position: relative; white-space: nowrap; }
+    .lp .accent::after {
+      content: ''; position: absolute;
+      left: -2%; right: -2%; bottom: -0.18em; height: 0.42em;
+      background: radial-gradient(ellipse at center, var(--magenta) 0, var(--magenta) 35%, transparent 55%);
+      border-radius: 50%; z-index: -1; opacity: 0.95; transform: rotate(-1.2deg);
+    }
+    .lp .accent.coral::after {
+      background: radial-gradient(ellipse at center, var(--coral) 0, var(--coral) 35%, transparent 55%);
+    }
+    .lp .accent.line::after {
+      background: none; border-bottom: 3px solid var(--magenta);
+      border-radius: 0; height: auto; bottom: -0.06em;
+      left: 0; right: 0; transform: rotate(-0.6deg);
+    }
+
+    /* ─── HEADER ─── */
+    .lp .hdr {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in oklab, var(--cream) 86%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+    }
+    .lp .hdr-row {
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; padding: 18px 28px; gap: 24px;
+    }
+    .lp .logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 22px; letter-spacing: -0.03em;
+      color: var(--magenta); text-decoration: none;
+    }
+    .lp .logo .x {
+      display: inline-block; width: 22px; height: 22px;
+      border-radius: 50%; background: var(--grad-hero);
+    }
+    .lp .nav { display: flex; gap: 4px; justify-content: center; font-size: 14px; }
+    .lp .nav a {
+      color: var(--ink); text-decoration: none; padding: 8px 14px;
+      border-radius: var(--r-pill); font-weight: 500;
+      transition: background .15s ease, color .15s ease;
+    }
+    .lp .nav a:hover { background: color-mix(in oklab, var(--magenta) 10%, transparent); color: var(--magenta); }
+    .lp .nav a.active { background: var(--ink); color: var(--cream); }
+
+    /* ─── BUTTONS — solid, no gradient ─── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 22px; border-radius: var(--r-pill);
+      border: 0; font-family: inherit; font-weight: 600; font-size: 14px;
+      cursor: pointer; text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary {
+      background: var(--magenta); color: #fff;
+      box-shadow: 0 6px 24px -8px color-mix(in oklab, var(--magenta) 60%, transparent);
+    }
+    .btn.primary:hover { filter: brightness(1.1); }
+    .btn.solid   { background: var(--ink); color: var(--cream); }
+    .btn.magenta { background: var(--magenta); color: #fff; }
+    .btn.blue    { background: var(--blue); color: #fff; box-shadow: 0 4px 16px -6px color-mix(in oklab, var(--blue) 60%, transparent); }
+    .btn.ghost {
+      background: transparent; color: var(--ink);
+      border: 1.5px solid color-mix(in oklab, var(--ink) 18%, transparent);
+    }
+    .btn.ghost:hover { background: color-mix(in oklab, var(--ink) 5%, transparent); }
+    .btn.lg { padding: 16px 26px; font-size: 15px; }
+    .btn .arr { display: inline-block; transition: transform .15s ease; }
+    .btn:hover .arr { transform: translateX(3px); }
+
+    /* ─── HERO ─── */
+    .hero { padding: 30px; }
+    .hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid color-mix(in oklab, var(--magenta) 25%, transparent);
+      border-radius: var(--r-pill); padding: 7px 14px 7px 10px;
+      font-size: 12px; font-weight: 600; color: var(--magenta); margin-bottom: 28px;
+    }
+    .hero .eyebrow .live {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--coral);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--coral) 25%, transparent);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--coral) 25%, transparent); }
+      50%       { box-shadow: 0 0 0 8px color-mix(in oklab, var(--coral) 0%, transparent); }
+    }
+    .hero h1 {
+      font-size: clamp(56px, 9vw, 124px);
+      letter-spacing: -0.04em; line-height: 0.95; margin: 0 0 28px; max-width: 16ch;
+    }
+    .hero h1 .grad {
+      background: var(--grad-hero);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; font-style: italic; font-weight: 800;
+    }
+    .hero h1 small {
+      display: block; font-size: 0.32em; font-weight: 500; color: var(--ink);
+      margin-top: 18px; letter-spacing: -0.015em; line-height: 1.2; max-width: 22ch;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 40px; align-items: end; margin-bottom: 90px;
+    }
+    .hero-sub { font-size: 17px; line-height: 1.55; color: var(--ink); max-width: 42ch; margin: 0 0 24px; }
+    .hero-sub b { color: var(--magenta); font-weight: 700; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .hero-cta .meta { font-size: 12px; color: var(--mute); margin-left: 8px; display: inline-flex; flex-direction: column; }
+    .hero-cta .meta b { color: var(--ink); font-weight: 600; }
+
+    .hero-portrait {
+      position: relative; aspect-ratio: 4/5; border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--magenta) 40%, transparent);
+    }
+    .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .hero-portrait .badge {
+      position: absolute; top: 18px; left: 18px;
+      background: rgba(255,255,255,0.95); color: var(--ink);
+      font-size: 11px; font-weight: 600; padding: 6px 12px;
+      border-radius: var(--r-pill); display: inline-flex; align-items: center; gap: 6px; z-index: 1;
+    }
+    .hero-portrait .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--magenta); }
+
+    .stat-card {
+      margin-top: 8px; border-radius: var(--r-lg); background: var(--grad-hero);
+      padding: 56px 48px; display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 24px; color: #fff; align-items: center;
+      box-shadow: 0 24px 60px -24px color-mix(in oklab, var(--magenta) 50%, transparent);
+    }
+    .stat-card .stat { display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; }
+    .stat-card .stat .num { font-weight: 700; font-size: clamp(56px, 6vw, 84px); letter-spacing: -0.04em; line-height: 1; margin-bottom: 16px; }
+    .stat-card .stat .lbl { font-size: 16px; opacity: 0.92; font-weight: 500; }
+    .stat-card .stat--date .num { font-size: clamp(36px, 3.8vw, 58px); letter-spacing: -0.02em; }
+
+    .hero-foot { margin-top: 36px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+    .hero-foot .pull { font-size: 22px; font-weight: 700; color: var(--magenta); letter-spacing: -0.02em; line-height: 1.2; max-width: 24ch; }
+    .hero-foot p { font-size: 15px; color: var(--ink); max-width: 48ch; line-height: 1.6; margin: 0; }
+
+    /* ─── COUNTDOWN ─── */
+    .countdown-stripe {
+      margin: 56px 28px 0; border-radius: var(--r-lg); background: var(--grad-deep); color: #fff;
+      padding: 24px 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+    }
+    .countdown-stripe .label { display: flex; flex-direction: column; gap: 4px; }
+    .countdown-stripe .label .small { font-size: 12px; text-transform: uppercase; opacity: 0.7; letter-spacing: 0.06em; font-weight: 600; }
+    .countdown-stripe .label .big { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+    .countdown-stripe .label .big em {
+      font-style: normal;
+      background: linear-gradient(90deg, #FFB48A 0%, #FF8FB8 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .countdown-stripe .clock { display: flex; gap: 10px; }
+    .countdown-stripe .clock .seg {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--r-md); padding: 12px 16px; text-align: center; min-width: 80px;
+      backdrop-filter: blur(6px);
+    }
+    .countdown-stripe .clock .seg b { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; display: block; }
+    .countdown-stripe .clock .seg span { font-size: 11px; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ─── SECTION ─── */
+    .sec { padding: 96px 28px; position: relative; }
+    .sec.gradient-deep { background: var(--grad-deep); color: #fff; }
+    .sec.gradient-deep h2, .sec.gradient-deep h3 { color: #fff; }
+    .sec.gradient-deep .sec-eyebrow { color: rgba(255,255,255,0.7); }
+    .sec.gradient-prog { background: var(--grad-prog); color: #fff; }
+
+    .sec-head { text-align: center; margin-bottom: 56px; }
+    .sec-eyebrow { display: inline-block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--magenta); margin-bottom: 14px; }
+    .sec h2.title { font-size: clamp(44px, 6vw, 40px); letter-spacing: -0.03em; margin: 0 auto 18px; max-width: 70%; font-weight: 700; }
+    .sec h2.title em { font-style: italic; background: var(--grad-hero); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .sec .sec-sub { font-size: 18px; color: var(--ink); max-width: 56ch; margin: 0 auto; line-height: 1.5; }
+    .sec.gradient-deep .sec-sub { color: rgba(255,255,255,0.85); }
+
+    /* ─── SOBRE ─── */
+    .about-card {
+      background: #fff; border-radius: var(--r-lg); padding: 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 32px;
+      box-shadow: 0 8px 40px -16px rgba(0,0,0,0.08);
+    }
+    .about-card .lead { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 0; max-width: 18ch; }
+    .about-card p { font-size: 16px; color: var(--ink); line-height: 1.6; margin: 0 0 16px; }
+    .about-card .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .about-card .tag { font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: var(--r-pill); background: color-mix(in oklab, var(--magenta) 8%, transparent); color: var(--magenta); }
+
+    .pillars-wrap { margin-top: 48px; }
+    .pillars-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+    .pillars-head h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+    .pillars-head .meta { font-size: 13px; color: var(--mute); }
+    .pillars { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+    .pillar { background: #fff; border-radius: var(--r-md); padding: 24px 20px; display: flex; flex-direction: column; gap: 14px; min-height: 220px; transition: transform .2s ease, box-shadow .2s ease; cursor: default; }
+    .pillar:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -12px rgba(0,0,0,0.12); }
+    .pillar .num { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: #fff; background: var(--magenta); }
+    .pillar:nth-child(2) .num { background: var(--coral); }
+    .pillar:nth-child(3) .num { background: var(--peach); color: var(--ink); }
+    .pillar:nth-child(4) .num { background: var(--blue); }
+    .pillar:nth-child(5) .num { background: var(--magenta-d); }
+    .pillar h5 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+    .pillar p  { font-size: 13px; color: var(--mute); margin: auto 0 0; line-height: 1.5; }
+
+    /* Aldo card */
+    .aldo-card {
+      margin-top: 32px; background: rgba(255,255,255,0.96); border-radius: var(--r-lg);
+      padding: 40px; display: grid; grid-template-columns: 200px 1fr;
+      gap: 32px; align-items: start; box-shadow: 0 8px 40px -16px rgba(0,0,0,0.1);
+    }
+    .aldo-card .portrait { aspect-ratio: 3/4; border-radius: var(--r-md); overflow: hidden; position: relative; }
+    .aldo-card .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .aldo-card .portrait::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+      background: linear-gradient(transparent, rgba(0,0,0,0.35)); pointer-events: none;
+    }
+    .aldo-card .portrait .tag {
+      position: absolute; bottom: 10px; left: 10px; z-index: 1;
+      font-size: 9px; background: #fff; padding: 4px 8px;
+      border-radius: var(--r-pill); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .aldo-card .meta { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--magenta); font-weight: 600; margin-bottom: 8px; }
+    .aldo-card h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 16px; }
+    .aldo-card p  { font-size: 15px; color: var(--ink); line-height: 1.6; margin: 0 0 12px; max-width: 60ch; }
+
+    /* ─── A QUIÉN ─── */
+    .who-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
+    .who-left .pull-quote { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+    .who-left .pull-quote em { font-style: italic; color: var(--peach); }
+    .who-left p { font-size: 16px; line-height: 1.6; opacity: 0.9; margin: 0 0 14px; }
+    .who-left .pill-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .who-left .pill-list .pill { font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: var(--r-pill); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #fff; }
+    .who-card { background: #fff; border-radius: var(--r-lg); padding: 36px; color: var(--ink); }
+    .who-card h4 { font-size: 22px; font-weight: 700; margin: 0 0 8px; }
+    .who-card .sub { font-size: 14px; color: var(--mute); margin: 0 0 24px; }
+    .who-card .types { display: grid; gap: 12px; }
+    .who-type { display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; padding: 14px 16px; border-radius: var(--r-md); background: color-mix(in oklab, var(--magenta) 5%, transparent); transition: background .15s ease; }
+    .who-type:hover { background: color-mix(in oklab, var(--magenta) 9%, transparent); }
+    .who-type .ico { width: 40px; height: 40px; border-radius: 50%; background: var(--grad-hero); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 14px; }
+    .who-type .name  { font-size: 16px; font-weight: 600; }
+    .who-type .arrow { color: var(--magenta); font-size: 18px; }
+
+    .criteria-card { margin-top: 40px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16); border-radius: var(--r-lg); padding: 32px 36px; backdrop-filter: blur(8px); }
+    .criteria-card h4 { font-size: 22px; font-weight: 700; margin: 0 0 6px; }
+    .criteria-card .crit-sub { font-size: 14px; opacity: 0.75; margin: 0 0 24px; }
+    .criteria-card .crits { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px; }
+    .crit-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.14); }
+    .crit-row .name  { font-size: 15px; font-weight: 500; }
+    .crit-row .meter { display: flex; align-items: center; gap: 12px; }
+    .crit-row .bar   { width: 110px; height: 6px; background: rgba(255,255,255,0.18); border-radius: 999px; overflow: hidden; }
+    .crit-row .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--peach), var(--coral)); }
+    .crit-row .pct   { font-size: 13px; font-weight: 600; min-width: 36px; text-align: right; }
+
+    /* ─── CÓMO PARTICIPAR ─── */
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 56px; }
+    .step { background: #fff; border-radius: var(--r-lg); padding: 32px; position: relative; display: grid; gap: 16px; }
+    .step .step-num { font-weight: 700; font-size: 56px; letter-spacing: -0.04em; line-height: 0.85; background: var(--grad-hero); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .step h5 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+    .step p  { font-size: 14px; color: var(--mute); margin: 0; line-height: 1.55; }
+    .step::after { content: '→'; position: absolute; right: -22px; top: 50%; transform: translateY(-50%); font-size: 22px; color: var(--magenta); font-weight: 300; }
+    .step:last-child::after { display: none; }
+    .timeline-card { background: #fff; border-radius: var(--r-lg); padding: 8px; box-shadow: 0 8px 40px -16px rgba(0,0,0,0.08); }
+    .timeline-card .row { display: grid; grid-template-columns: 130px 1fr auto; gap: 16px; align-items: center; padding: 18px 24px; border-radius: var(--r-md); border-bottom: 1px solid color-mix(in oklab, var(--ink) 6%, transparent); }
+    .timeline-card .row:last-child { border-bottom: 0; }
+    .timeline-card .row.now { background: var(--grad-hero); color: #fff; }
+    .timeline-card .row .date { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--magenta); }
+    .timeline-card .row.now .date { color: #fff; }
+    .timeline-card .row .name { font-size: 16px; font-weight: 500; color: var(--ink); }
+    .timeline-card .row.now .name { color: #fff; font-weight: 600; }
+    .timeline-card .row .pill { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: var(--r-pill); background: color-mix(in oklab, var(--magenta) 10%, transparent); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.04em; }
+    .timeline-card .row.now .pill { background: rgba(255,255,255,0.22); color: #fff; }
+
+    /* ─── ELEMENTOR STEPS FORM ─── */
+    .elementor-form-wrapper {
+      background: #fff; border-radius: var(--r-lg);
+      box-shadow: 0 12px 60px -20px rgba(0,0,0,0.12); overflow: hidden;
+    }
+
+    /* Step indicators header */
+    .e-form__indicators {
+      display: flex; align-items: center; flex-wrap: wrap;
+      padding: 28px 36px; background: var(--grad-hero); gap: 4px;
+    }
+    .e-form__indicators__indicator {
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0.45; transition: opacity .25s;
+    }
+    .e-form__indicators__indicator--state-active  { opacity: 1; }
+    .e-form__indicators__indicator--state-done    { opacity: 0.7; }
+    .e-form__indicators__indicator__number {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0;
+      transition: background .25s;
+    }
+    .e-form__indicators__indicator--state-active .e-form__indicators__indicator__number {
+      background: #fff; color: var(--magenta);
+    }
+    .e-form__indicators__indicator__label {
+      font-size: 13px; font-weight: 600; color: #fff; white-space: nowrap;
+    }
+    .e-form__indicators__indicator__separator {
+      color: rgba(255,255,255,0.35); font-size: 16px; margin: 0 6px; flex-shrink: 0;
+    }
+
+    /* Progress bar */
+    .form-progress-bar { height: 4px; background: rgba(255,255,255,0.15); }
+    .form-progress-bar-fill { height: 100%; background: rgba(255,255,255,0.75); transition: width .35s ease; }
+
+    /* Steps */
+    .e-form__step { display: none; padding: 40px 36px; }
+    .e-form__step--active { display: block; }
+
+    .e-form__step-title { font-size: 20px; font-weight: 700; color: var(--ink); margin: 0 0 28px; letter-spacing: -0.02em; }
+
+    /* Fields grid */
+    .elementor-form-fields-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .elementor-field-group { display: flex; flex-direction: column; gap: 6px; }
+    .elementor-col-100 { grid-column: 1 / -1; }
+
+    .elementor-field-label { font-size: 12px; font-weight: 600; color: var(--mute); letter-spacing: 0.02em; }
+    .elementor-field-label abbr { text-decoration: none; color: var(--coral); margin-left: 2px; }
+
+    .elementor-field,
+    .elementor-field-textual {
+      border: 1.5px solid color-mix(in oklab, var(--ink) 12%, transparent);
+      background: var(--cream); border-radius: 14px;
+      padding: 13px 16px; font: inherit; font-size: 15px;
+      color: var(--ink); outline: none; width: 100%;
+      transition: border-color .15s ease, box-shadow .15s ease;
+      -webkit-appearance: none; appearance: none;
+    }
+    .elementor-field:focus {
+      border-color: var(--magenta); background: #fff;
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--magenta) 18%, transparent);
+    }
+    .elementor-field::placeholder { color: color-mix(in oklab, var(--mute) 75%, transparent); }
+    textarea.elementor-field { resize: vertical; min-height: 100px; }
+    select.elementor-field { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B5560' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+
+    /* Radio / Checkbox */
+    .elementor-field-type-radio .elementor-field-subgroup,
+    .elementor-field-type-checkbox .elementor-field-subgroup {
+      display: flex; flex-direction: column; gap: 10px; padding-top: 4px;
+    }
+    .elementor-field-option { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink); cursor: pointer; line-height: 1.4; }
+    .elementor-field-option input { accent-color: var(--magenta); width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    /* Navigation buttons */
+    .e-form__buttons { margin-top: 32px; padding-top: 24px; border-top: 1px solid color-mix(in oklab, var(--ink) 7%, transparent); }
+    .e-form__buttons__wrapper { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
+    .e-form__buttons__wrapper__button-prev {
+      background: transparent; border: 1.5px solid color-mix(in oklab, var(--ink) 18%, transparent);
+      color: var(--ink); padding: 13px 22px; border-radius: var(--r-pill);
+      font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: all .15s ease;
+    }
+    .e-form__buttons__wrapper__button-prev:hover { background: color-mix(in oklab, var(--ink) 5%, transparent); }
+    .e-form__buttons__wrapper__button-next,
+    .elementor-button-submit {
+      background: var(--magenta); color: #fff;
+      padding: 13px 28px; border-radius: var(--r-pill);
+      font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+      border: 0; transition: filter .15s ease, transform .15s ease;
+      box-shadow: 0 4px 16px -6px color-mix(in oklab, var(--magenta) 60%, transparent);
+    }
+    .e-form__buttons__wrapper__button-next:hover,
+    .elementor-button-submit:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    /* Step meta */
+    .e-form__step-meta { font-size: 12px; color: var(--mute); margin-right: auto; }
+
+    /* ─── Schedule accordions ─── */
+    .sched-accordion { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .sched-acc {
+      border-radius: var(--r-md); overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.14);
+    }
+    .sched-acc summary {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; cursor: pointer; list-style: none; user-select: none;
+      transition: background .15s ease;
+    }
+    .sched-acc summary::-webkit-details-marker { display: none; }
+    .sched-acc .sched-icon {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 17px;
+    }
+    .sched-acc-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .sched-acc .sched-title { font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .sched-acc .sched-count { font-size: 12px; color: rgba(255,255,255,0.6); }
+    .sched-chevron {
+      font-size: 22px; font-weight: 300; color: rgba(255,255,255,0.5);
+      transition: transform .2s ease; line-height: 1; display: inline-block;
+      transform: rotate(90deg);
+    }
+    .sched-acc[open] .sched-chevron { transform: rotate(-90deg); }
+    /* per-type colors */
+    .sched-acc--presencial summary { background: rgba(255,110,90,0.18); }
+    .sched-acc--presencial summary:hover { background: rgba(255,110,90,0.26); }
+    .sched-acc--presencial .sched-icon { background: var(--coral); }
+    .sched-acc--virtual summary { background: rgba(61,107,255,0.18); }
+    .sched-acc--virtual summary:hover { background: rgba(61,107,255,0.26); }
+    .sched-acc--virtual .sched-icon { background: var(--blue); }
+    .sched-acc--sostenimiento summary { background: rgba(161,26,153,0.28); }
+    .sched-acc--sostenimiento summary:hover { background: rgba(161,26,153,0.38); }
+    .sched-acc--sostenimiento .sched-icon { background: var(--magenta); }
+    /* body */
+    .sched-acc-body {
+      display: flex; flex-direction: column; gap: 6px;
+      padding: 12px 16px 14px; background: rgba(255,255,255,0.07);
+    }
+    .sched-date {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.9); padding: 8px 12px;
+      border-radius: 10px; background: rgba(255,255,255,0.07);
+    }
+    .sched-date .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .sched-date--tbd { opacity: 0.45; font-style: italic; }
+    .sched-acc--presencial .dot { background: var(--coral); }
+    .sched-acc--virtual .dot { background: var(--sky); }
+    .sched-acc--sostenimiento .dot { background: color-mix(in oklab, var(--magenta) 60%, #fff); }
+    .schedule-note {
+      border-radius: var(--r-md); padding: 13px 16px;
+      font-size: 13px; line-height: 1.55;
+      margin-top: 4px; display: flex; gap: 10px; align-items: flex-start;
+    }
+    .schedule-note .note-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    /* Disponibilidad block label */
+    .dispon-block { margin-top: 28px; }
+    .dispon-block .dispon-label {
+      font-size: 18px; font-weight: 700; letter-spacing: -0.02em;
+      color: #fff; margin: 0 0 14px;
+    }
+
+    /* schedule-note dark bg */
+    .gradient-deep .schedule-note {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.85);
+    }
+
+    @media (max-width: 600px) {
+      .schedule-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      margin: 80px 28px 56px; /* ← added margin-top */
+      border-radius: var(--r-lg); background: var(--grad-deep); color: #fff;
+      padding: 96px 48px; text-align: center;
+    }
+    .cta-final h2 { font-size: clamp(48px, 6.5vw, 90px); letter-spacing: -0.03em; margin: 0 0 24px; font-weight: 700; }
+    .cta-final h2 em { font-style: italic; background: linear-gradient(90deg, #FFB48A 0%, #FFE0CC 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .cta-final p { font-size: 17px; color: rgba(255,255,255,0.85); max-width: 50ch; margin: 0 auto 36px; line-height: 1.55; }
+    .cta-final .cta-row { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 800px; margin: 0 auto; display: grid; gap: 0; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.18); padding: 22px 8px 22px 0; display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; cursor: pointer; }
+    .faq-item .plus { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.18); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; line-height: 1; user-select: none; }
+    .faq-item h6 { font-size: 18px; font-weight: 600; margin: 0; color: #fff; }
+    .faq-item .a { font-size: 14px; color: rgba(255,255,255,0.78); margin-top: 8px; line-height: 1.55; display: none; }
+    .faq-item.open .a    { display: block; }
+    .faq-item.open .plus { background: var(--coral); }
+
+    /* ─── CONTACT ─── */
+    .contact-card { background: var(--cream); border-radius: var(--r-lg); padding: 0px 48px; text-align: center; max-width: 720px; margin: 0 auto; }
+    .contact-card h3 { font-size: clamp(40px, 5vw, 64px); font-weight: 700; letter-spacing: -0.025em; background: linear-gradient(90deg, var(--peach) 0%, var(--coral) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0 0 12px; }
+    .contact-card p { font-size: 16px; color: var(--ink); margin: 0 0 28px; }
+    .contact-form { display: grid; gap: 14px; text-align: left; }
+    .contact-form input, .contact-form textarea { border: 1.5px solid color-mix(in oklab, var(--ink) 10%, transparent); background: #fff; border-radius: 16px; padding: 16px 18px; font: inherit; font-size: 15px; color: var(--ink); outline: none; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--magenta); }
+    .contact-form .submit { justify-self: center; margin-top: 8px; }
+
+    /* ─── FOOTER ─── */
+    .foot { background: var(--ink); color: rgba(255,255,255,0.78); padding: 64px 28px 28px; }
+    .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .foot-logo { font-size: 64px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; color: #fff; }
+    .foot-logo .x { color: var(--coral); font-style: italic; }
+    .foot p { font-size: 13px; line-height: 1.6; margin: 18px 0 0; max-width: 38ch; color: rgba(255,255,255,0.62); }
+    .foot h6 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
+    .foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 13px; }
+    .foot ul a { color: rgba(255,255,255,0.78); text-decoration: none; }
+    .foot ul a:hover { color: #fff; }
+    .foot-bot { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,0.52); flex-wrap: wrap; gap: 12px; }
+
+    /* ─── BENEFICIOS ─── */
+    .beneficios-wrap { margin: 56px 0 0; }
+    .beneficios-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--magenta); margin: 0 0 20px;
+    }
+    .beneficios-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 14px;
+    }
+    .beneficio {
+      background: #fff; border-radius: var(--r-md);
+      padding: 28px 24px; display: flex; flex-direction: column; gap: 18px;
+      border: 1.5px solid color-mix(in oklab, var(--ink) 6%, transparent);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .beneficio:hover { transform: translateY(-3px); box-shadow: 0 10px 28px -10px rgba(0,0,0,0.10); }
+    .beneficio .bnum {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0;
+    }
+    .beneficio:nth-child(1) .bnum { background: var(--coral); }
+    .beneficio:nth-child(2) .bnum { background: var(--magenta); }
+    .beneficio:nth-child(3) .bnum { background: var(--blue); }
+    .beneficio:nth-child(4) .bnum { background: var(--peach); color: var(--ink); }
+    .beneficio p { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; margin: 0; color: var(--ink); }
+    @media (max-width: 980px) { .beneficios-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .beneficios-grid { grid-template-columns: 1fr; } }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 980px) {
+      .hero-grid, .hero-foot, .about-card, .who-wrap { grid-template-columns: 1fr; }
+      .elementor-form-fields-wrapper { grid-template-columns: 1fr; }
+      .elementor-col-100 { grid-column: 1; }
+      .stat-card { grid-template-columns: 1fr; gap: 32px; padding: 40px 32px; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .step::after { display: none; }
+      .criteria-card .crits { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .aldo-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .lp .hdr-row { grid-template-columns: 1fr auto; }
+      .lp .nav { display: none; }
+      .stat-card { padding: 32px 24px; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .cta-final { margin: 60px 16px 40px; padding: 64px 28px; }
+      .e-form__indicators { padding: 20px 24px; }
+      .e-form__indicators__indicator__label { display: none; }
+      .e-form__step { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="lp">
+
+  <!-- ── 01 HEADER ── -->
+  <header class="hdr">
+    <div class="hdr-row">
+      <a href="#inicio" class="logo"><span class="x"></span>100×100</a>
+      <nav class="nav">
+        <a href="#inicio" class="active">Inicio</a>
+        <a href="#sobre">Sobre el programa</a>
+        <a href="#convocatoria">Convocatoria</a>
+      </nav>
+      <a href="#form" class="btn primary">Postúlate <span class="arr">→</span></a>
+    </div>
+  </header>
+
+  <!-- ── 02 HERO ── -->
+  <section id="inicio" class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>
+          <span class="grad">100</span> líderes.<br>
+          <span class="grad">100</span> días.
+          <small>Una ciudad que se transforma desde el <span class="accent line">cuidado</span>.</small>
+        </h1>
+        <p class="hero-sub">
+          Muchos líderes llevan años sosteniendo procesos y personas sin espacios para detenerse, conectar y fortalecerse.
+          <b>100×100</b> nace para acompañar ese trabajo con herramientas prácticas, conexión y trabajo colectivo.
+        </p>
+        <div class="hero-cta">
+          <a href="#form" class="btn primary lg">Quiero participar <span class="arr">→</span></a>
+          <a href="#sobre" class="btn ghost lg">Conoce más</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <span class="badge">Medellín · 2026</span>
+        <img src="hero.webp" alt="Liderazgo en Medellín">
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat stat--date"><div class="num">GRATIS</div><div class="lbl">Postulación sin costo</div></div>
+      <div class="stat"><div class="num">100</div><div class="lbl">Líderes seleccionados</div></div>
+      <div class="stat"><div class="num">100</div><div class="lbl">Días de proceso</div></div>
+      <div class="stat"><div class="num">+5</div><div class="lbl">Encuentros presenciales</div></div>
+    </div>
+
+    <div class="hero-foot">
+      <p class="pull">El bienestar no es individual. <span class="accent">Se construye en red.</span></p>
+      <p>Gestado en <b>El MED</b>, liderado por <b>Magna</b>, monitoreado por <b>Valor Sostenible</b>,
+         diseñado por <b>Aldo Cívico</b>, apoyado por <b>Vibra en Alta</b>
+         y con impacto social de <b>Selia</b> y <b>Oye</b>.</p>
+    </div>
+  </section>
+
+  <!-- ── COUNTDOWN ── -->
+  <div class="countdown-stripe">
+    <div class="label">
+      <span class="small">cierre de convocatoria</span>
+      <span class="big">25 de mayo · <em>quedan pocos días</em></span>
+    </div>
+    <div class="clock">
+      <div class="seg"><b id="cd-d">00</b><span>días</span></div>
+      <div class="seg"><b id="cd-h">00</b><span>hrs</span></div>
+      <div class="seg"><b id="cd-m">00</b><span>min</span></div>
+      <div class="seg"><b id="cd-s">00</b><span>seg</span></div>
+    </div>
+  </div>
+
+  <!-- ── 03 SOBRE ── -->
+  <section id="sobre" class="sec">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Sobre el programa</span>
+      <h2 class="title"><em>100x100 es un proceso de 100 días</em> que reúne a líderes de Medellín que ya están sosteniendo procesos en sus comunidades.</h2>
+      <p class="sec-sub">No partimos de cero. Medellín ya está llena de personas que cuidan, organizan y movilizan. 
+        Este programa busca acompañarlas, conectarlas y fortalecer su trabajo.</p>
+    </div>
+
+    <div class="about-card">
+      <div>
+        <p class="lead">No es un curso tradicional. Es un proceso <span class="accent coral">práctico y colectivo</span>.</p>
+        <div class="tag-list">
+          <span class="tag">conversaciones guiadas</span>
+          <span class="tag">herramientas prácticas</span>
+          <span class="tag">ejercicios de liderazgo</span>
+          <span class="tag">trabajo entre pares</span>
+          <span class="tag">metodologías de escucha</span>
+          <span class="tag">diseño de acciones</span>
+          <span class="tag">acompañamiento aplicado</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:18px;font-weight:600;margin:0 0 16px">Objetivos</p>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:10px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid color-mix(in oklab,#1A0F1A 8%,transparent)">
+          <span style="color:var(--magenta);font-weight:700;font-size:14px">01</span>
+          <span style="font-size:15px;line-height:1.4">Fortalecer habilidades de liderazgo desde el cuidado y el bienestar</span>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:10px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid color-mix(in oklab,#1A0F1A 8%,transparent)">
+          <span style="color:var(--magenta);font-weight:700;font-size:14px">02</span>
+          <span style="font-size:15px;line-height:1.4">Promover la salud mental como eje del trabajo comunitario</span>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:10px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid color-mix(in oklab,#1A0F1A 8%,transparent)">
+          <span style="color:var(--magenta);font-weight:700;font-size:14px">03</span>
+          <span style="font-size:15px;line-height:1.4">Activar redes de apoyo y colaboración en la ciudad</span>
+        </div>
+        <div style="display:grid;grid-template-columns:32px 1fr;gap:10px">
+          <span style="color:var(--magenta);font-weight:700;font-size:14px">04</span>
+          <span style="font-size:15px;line-height:1.4">Impulsar acciones colectivas con impacto en territorio</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="beneficios-wrap">
+      <p class="beneficios-label">Beneficios</p>
+      <div class="beneficios-grid">
+        <div class="beneficio">
+          <span class="bnum">01</span>
+          <p>Formación experiencial con metodologías prácticas</p>
+        </div>
+        <div class="beneficio">
+          <span class="bnum">02</span>
+          <p>Acompañamiento durante todo el proceso</p>
+        </div>
+        <div class="beneficio">
+          <span class="bnum">03</span>
+          <p>Conexión con una red de líderes de la ciudad</p>
+        </div>
+        <div class="beneficio">
+          <span class="bnum">04</span>
+          <p>Herramientas aplicables a procesos reales en comunidad</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillars-wrap">
+      <div class="pillars-head">
+        <h3>Cómo funciona: 5 pilares · 100 días</h3>
+        <p>Un proceso de 100 días que combina encuentros presenciales, espacios virtuales y momentos de aplicación real en territorio. <br>  
+          El programa está dividido en Pilares, momentos clave</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="num">I</span><h5>Reconocer</h5><p>Lo que somos y lo que cargamos.</p></div>
+        <div class="pillar"><span class="num">II</span><h5>Sentir</h5><p>Conectar con lo esencial.</p></div>
+        <div class="pillar"><span class="num">III</span><h5>Imaginar</h5><p>Nuevas formas de hacer comunidad.</p></div>
+        <div class="pillar"><span class="num">IV</span><h5>Crear</h5><p>Acciones concretas en territorio.</p></div>
+        <div class="pillar"><span class="num">V</span><h5>Cuidar</h5><p>Sostener lo construido en el tiempo.</p></div>
+      </div>
+    </div>
+
+    <div class="aldo-card">
+      <div class="portrait">
+        <img src="aldo_civico.webp" alt="Aldo Cívico, Ph.D.">
+        <span class="tag">aldo cívico</span>
+      </div>
+      <div>
+        <div class="meta">Diseño metodológico · Dirección académica</div>
+        <h4>Aldo Cívico, Ph.D.</h4>
+        <p>Antropólogo sociocultural formado en la Universidad de Columbia y profesor en sus programas de Negociación y Resolución de Conflictos. Más de 30 años de experiencia en procesos de transformación social en contextos de alta complejidad.</p>
+        <p>Su enfoque articula neurociencia, identidad, cuerpo y emoción para acompañar procesos de cambio profundo. En 100×100 lidera la arquitectura metodológica del programa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 A QUIÉN ── -->
+  <section class="sec gradient-deep">
+    <div class="sec-head">
+      <span class="sec-eyebrow">A quién buscamos</span>
+      <h2 class="title">Este programa <em>es para ti</em> si…</h2>
+    </div>
+    <div class="who-wrap">
+      <div class="who-left">
+        <p class="pull-quote">…tienes la disposición de <em>aprender y crecer</em> en comunidad. Buscamos líderes auténticos, comprometidos con Medellín.</p>
+        <p>No buscamos perfección. Buscamos coherencia, acción y compromiso con lo colectivo.</p>
+        <h3>Requerimientos Clave</h3>
+        <div class="pill-list">
+          <span class="pill">Vivir o incidir en Medellín</span>
+          <span class="pill">Liderar un proceso comunitario activo</span>
+          <span class="pill">Compromiso con el bienestar colectivo</span>
+        </div>
+
+        <div class="dispon-block">
+          <p class="dispon-label">Disponibilidad para los 100 días así:</p>
+          <div class="sched-accordion">
+
+            <details class="sched-acc sched-acc--presencial">
+              <summary>
+                <div class="sched-acc-info">
+                  <span class="sched-title">Encuentros presenciales</span>
+                  <span class="sched-count">5 jornadas · horarios diurnos</span>
+                </div>
+                <span class="sched-chevron">›</span>
+              </summary>
+              <div class="sched-acc-body">
+                <div class="sched-date"><span class="dot"></span>6 de junio</div>
+                <div class="sched-date"><span class="dot"></span>27 de junio</div>
+                <div class="sched-date"><span class="dot"></span>18 de julio</div>
+                <div class="sched-date"><span class="dot"></span>8 de agosto</div>
+                <div class="sched-date sched-date--tbd"><span class="dot"></span>5.º encuentro por definir</div>
+              </div>
+            </details>
+
+            <details class="sched-acc sched-acc--virtual">
+              <summary>
+                <div class="sched-acc-info">
+                  <span class="sched-title">Encuentros virtuales</span>
+                  <span class="sched-count">4 sesiones · horarios diurnos</span>
+                </div>
+                <span class="sched-chevron">›</span>
+              </summary>
+              <div class="sched-acc-body">
+                <div class="sched-date"><span class="dot"></span>20 de junio</div>
+                <div class="sched-date"><span class="dot"></span>11 de julio</div>
+                <div class="sched-date"><span class="dot"></span>1 de agosto</div>
+                <div class="sched-date"><span class="dot"></span>22 de agosto</div>
+              </div>
+            </details>
+
+            <details class="sched-acc sched-acc--sostenimiento">
+              <summary>
+                <div class="sched-acc-info">
+                  <span class="sched-title">Semanas de sostenimiento</span>
+                  <span class="sched-count">4 semanas · práctica y acompañamiento</span>
+                </div>
+                <span class="sched-chevron">›</span>
+              </summary>
+              <div class="sched-acc-body">
+                <div class="sched-date"><span class="dot"></span>9 – 13 de junio</div>
+                <div class="sched-date"><span class="dot"></span>30 jun – 4 de julio</div>
+                <div class="sched-date"><span class="dot"></span>21 – 25 de julio</div>
+                <div class="sched-date"><span class="dot"></span>11 – 15 de agosto</div>
+              </div>
+            </details>
+
+          </div>
+          <div class="schedule-note">
+            <span class="note-icon">⚠️</span>
+            <span>Es fundamental contar con disponibilidad para participar activamente en todas las fases del proceso durante los 100 días.</span>
+          </div>
+        </div>
+      </div>
+      <div class="who-card">
+        <h4>Tipos de liderazgo</h4>
+        <p class="sub">Buscamos diversidad de perfiles y territorios.</p>
+        <div class="types">
+          <div class="who-type"><span class="ico">LC</span><span class="name">Liderazgos comunitarios</span><span class="arrow">→</span></div>
+          <div class="who-type"><span class="ico">JL</span><span class="name">Jóvenes líderes</span><span class="arrow">→</span></div>
+          <div class="who-type"><span class="ico">AC</span><span class="name">Agentes culturales</span><span class="arrow">→</span></div>
+          <div class="who-type"><span class="ico">LS</span><span class="name">Líderes sociales</span><span class="arrow">→</span></div>
+          <div class="who-type"><span class="ico">CC</span><span class="name">Cuidadores de procesos colectivos</span><span class="arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="criteria-card">
+      <h4>Criterios de selección</h4>
+      <p class="crit-sub">Así elegimos a los 100 líderes.</p>
+      <div class="crits">
+        <div class="crit-row"><span class="name">Propósito y coherencia</span><span class="meter"><span class="bar"><i style="width:80%"></i></span><span class="pct">20%</span></span></div>
+        <div class="crit-row"><span class="name">Impacto</span><span class="meter"><span class="bar"><i style="width:100%"></i></span><span class="pct">25%</span></span></div>
+        <div class="crit-row"><span class="name">Conexión con Medellín</span><span class="meter"><span class="bar"><i style="width:60%"></i></span><span class="pct">15%</span></span></div>
+        <div class="crit-row"><span class="name">Colaboración y escucha</span><span class="meter"><span class="bar"><i style="width:60%"></i></span><span class="pct">15%</span></span></div>
+        <div class="crit-row"><span class="name">Apertura al aprendizaje</span><span class="meter"><span class="bar"><i style="width:60%"></i></span><span class="pct">15%</span></span></div>
+        <div class="crit-row"><span class="name">Continuidad</span><span class="meter"><span class="bar"><i style="width:40%"></i></span><span class="pct">10%</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 CÓMO PARTICIPAR ── -->
+  <section id="convocatoria" class="sec">
+    <div class="sec-head">
+      <span class="sec-eyebrow">Cómo participar</span>
+      <h2 class="title">Así puedes ser parte de <em>100×100</em>.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-num">01</span><h5>Inscripción</h5><p>Completa el formulario de postulación. Cuéntanos quién eres, qué haces y por qué quieres ser parte.</p></div>
+      <div class="step"><span class="step-num">02</span><h5>Selección</h5><p>Evaluamos perfiles según los seis criterios y seleccionamos a las 100 personas.</p></div>
+      <div class="step"><span class="step-num">03</span><h5>Formación</h5><p>Vivirás 100 días junto a otros líderes. Encuentros presenciales, virtuales y semanas de sostenimiento.</p></div>
+    </div>
+    <div class="timeline-card">
+      <div class="row"><span class="date">15.05.26</span><span class="name">Lanzamiento de convocatoria</span><span class="pill">fase 1</span></div>
+      <div class="row now"><span class="date">25.05.26</span><span class="name">Cierre de convocatoria</span><span class="pill">cierre · hoy</span></div>
+      <div class="row"><span class="date">30.05.26</span><span class="name">Anuncio de seleccionados · evento de lanzamiento</span><span class="pill">fase 2</span></div>
+      <div class="row"><span class="date">06.06.26</span><span class="name">Inicio del programa</span><span class="pill">fase 3</span></div>
+      <div class="row"><span class="date">jun → ago</span><span class="name">Desarrollo del proceso · 5 ciclos</span><span class="pill">fase 3</span></div>
+      <div class="row"><span class="date">19.09.26</span><span class="name">Evento de cierre y graduación</span><span class="pill">fase final</span></div>
+    </div>
+  </section>
+
+  <!-- ── 06 FORMULARIO — Elementor Steps Form ── -->
+  <section class="sec gradient-prog" id="form">
+    <div class="sec-head">
+      <span class="sec-eyebrow" style="color:rgba(255,255,255,0.85)">Formulario</span>
+      <h2 class="title" style="color:#fff">Postúlate a <span style="color:#FFE0CC;font-style:italic">100×100</span>.</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.92)">Este puede ser un espacio para fortalecer lo que ya vienes construyendo. La postulación se diligencia en 5 pasos cortos.</p>
+    </div>
+
+    <div class="elementor-form-wrapper">
+
+      <!-- Elementor Step Indicators -->
+      <div class="e-form__indicators">
+        <div class="e-form__indicators__indicator e-form__indicators__indicator--state-active" data-step="0">
+          <span class="e-form__indicators__indicator__number">1</span>
+          <span class="e-form__indicators__indicator__label">Datos personales</span>
+        </div>
+        <span class="e-form__indicators__indicator__separator">›</span>
+        <div class="e-form__indicators__indicator" data-step="1">
+          <span class="e-form__indicators__indicator__number">2</span>
+          <span class="e-form__indicators__indicator__label">Ubicación</span>
+        </div>
+        <span class="e-form__indicators__indicator__separator">›</span>
+        <div class="e-form__indicators__indicator" data-step="2">
+          <span class="e-form__indicators__indicator__number">3</span>
+          <span class="e-form__indicators__indicator__label">Tu proceso</span>
+        </div>
+        <span class="e-form__indicators__indicator__separator">›</span>
+        <div class="e-form__indicators__indicator" data-step="3">
+          <span class="e-form__indicators__indicator__number">4</span>
+          <span class="e-form__indicators__indicator__label">Motivación</span>
+        </div>
+        <span class="e-form__indicators__indicator__separator">›</span>
+        <div class="e-form__indicators__indicator" data-step="4">
+          <span class="e-form__indicators__indicator__number">5</span>
+          <span class="e-form__indicators__indicator__label">Autorizaciones</span>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="form-progress-bar">
+        <div class="form-progress-bar-fill" style="width:20%"></div>
+      </div>
+
+      <form class="elementor-form" method="post" name="postulacion-100x100">
+        <input type="hidden" name="form_id" value="postulacion-100x100">
+        <input type="hidden" name="referer_title" value="100x100 Landing">
+
+        <!-- ── Step 1: Datos personales ── -->
+        <div class="e-form__step e-form__step--active" data-step-index="0">
+          <p class="e-form__step-title">Datos personales</p>
+          <div class="elementor-form-fields-wrapper elementor-labels-above">
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-nombre">Nombre completo <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-nombre" type="text" name="form_fields[nombre]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Ej. María Elena Restrepo" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-edad">Edad <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-edad" type="number" name="form_fields[edad]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="años" min="18" max="99" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-documento">Documento de identidad <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-documento" type="text" name="form_fields[documento]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="CC · 1.000.000.000" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-genero">Género (auto-identificación)</label>
+              <input id="field-genero" type="text" name="form_fields[genero]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Como te identificas">
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-tel">
+              <label class="elementor-field-label" for="field-telefono">Teléfono <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-telefono" type="tel" name="form_fields[telefono]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="+57 300 000 0000" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-email">
+              <label class="elementor-field-label" for="field-email">Correo electrónico <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-email" type="email" name="form_fields[email]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="tucorreo@dominio.com" required>
+            </div>
+          </div>
+          <div class="e-form__buttons elementor-field-group elementor-column elementor-col-100">
+            <div class="e-form__buttons__wrapper">
+              <span class="e-form__step-meta">Paso 1 de 5</span>
+              <button type="button" class="elementor-button e-form__buttons__wrapper__button-next">Siguiente <span>›</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Step 2: Ubicación ── -->
+        <div class="e-form__step" data-step-index="1">
+          <p class="e-form__step-title">Ubicación</p>
+          <div class="elementor-form-fields-wrapper elementor-labels-above">
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-depto">Departamento <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-depto" type="text" name="form_fields[departamento]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Ej. Antioquia" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-ciudad">Ciudad / Municipio <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-ciudad" type="text" name="form_fields[ciudad]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Ej. Medellín" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-comuna">Comuna / Corregimiento <abbr title="Obligatorio">*</abbr></label>
+              <input id="field-comuna" type="text" name="form_fields[comuna]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Ej. Comuna 13 · San Javier" required>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-barrio">Barrio</label>
+              <input id="field-barrio" type="text" name="form_fields[barrio]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Tu barrio">
+            </div>
+          </div>
+          <div class="e-form__buttons elementor-field-group elementor-column elementor-col-100">
+            <div class="e-form__buttons__wrapper">
+              <button type="button" class="e-form__buttons__wrapper__button-prev">‹ Anterior</button>
+              <span class="e-form__step-meta">Paso 2 de 5</span>
+              <button type="button" class="elementor-button e-form__buttons__wrapper__button-next">Siguiente <span>›</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Step 3: Tu proceso de liderazgo ── -->
+        <div class="e-form__step" data-step-index="2">
+          <p class="e-form__step-title">Tu proceso de liderazgo</p>
+          <div class="elementor-form-fields-wrapper elementor-labels-above">
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-select">
+              <label class="elementor-field-label" for="field-tipo">Tipo de liderazgo <abbr title="Obligatorio">*</abbr></label>
+              <select id="field-tipo" name="form_fields[tipo_liderazgo]" class="elementor-field elementor-size-sm" required>
+                <option value="" disabled selected>Selecciona el que más te representa…</option>
+                <option value="comunitario">Liderazgo comunitario y territorial</option>
+                <option value="juvenil">Liderazgo juvenil</option>
+                <option value="cultural">Liderazgo cultural y creativo</option>
+                <option value="social">Liderazgo social</option>
+                <option value="institucional">Liderazgo cívico e institucional</option>
+                <option value="emprendimiento">Liderazgo emprendedor</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-textarea">
+              <label class="elementor-field-label" for="field-proceso">Describe brevemente el proceso que lideras <abbr title="Obligatorio">*</abbr></label>
+              <textarea id="field-proceso" name="form_fields[proceso]" class="elementor-field elementor-size-sm" rows="3" placeholder="Qué haces, con quiénes y desde cuándo…" required></textarea>
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-desde">¿Desde cuándo lideras este proceso?</label>
+              <input id="field-desde" type="text" name="form_fields[desde]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Ej. desde 2018">
+            </div>
+            <div class="elementor-field-group elementor-col-50 elementor-field-type-text">
+              <label class="elementor-field-label" for="field-impacto">¿A cuántas personas impacta aproximadamente?</label>
+              <input id="field-impacto" type="text" name="form_fields[personas_impacto]" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="Ej. 50 personas">
+            </div>
+          </div>
+          <div class="e-form__buttons elementor-field-group elementor-column elementor-col-100">
+            <div class="e-form__buttons__wrapper">
+              <button type="button" class="e-form__buttons__wrapper__button-prev">‹ Anterior</button>
+              <span class="e-form__step-meta">Paso 3 de 5</span>
+              <button type="button" class="elementor-button e-form__buttons__wrapper__button-next">Siguiente <span>›</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Step 4: Motivación y propósito ── -->
+        <div class="e-form__step" data-step-index="3">
+          <p class="e-form__step-title">Motivación y propósito</p>
+          <div class="elementor-form-fields-wrapper elementor-labels-above">
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-textarea">
+              <label class="elementor-field-label" for="field-por-que">¿Por qué quieres participar en 100×100? <abbr title="Obligatorio">*</abbr></label>
+              <textarea id="field-por-que" name="form_fields[por_que]" class="elementor-field elementor-size-sm" rows="3" placeholder="Cuéntanos desde lo genuino…" required></textarea>
+            </div>
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-textarea">
+              <label class="elementor-field-label" for="field-aportar">¿Qué esperas aportar al programa y a tus pares? <abbr title="Obligatorio">*</abbr></label>
+              <textarea id="field-aportar" name="form_fields[aporte]" class="elementor-field elementor-size-sm" rows="3" placeholder="Tu perspectiva, experiencias, habilidades…" required></textarea>
+            </div>
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-textarea">
+              <label class="elementor-field-label" for="field-desafio">¿Cuál es el principal desafío que enfrentas en tu proceso de liderazgo?</label>
+              <textarea id="field-desafio" name="form_fields[desafio]" class="elementor-field elementor-size-sm" rows="3" placeholder="Sé honesto/a — aquí no hay respuestas perfectas…"></textarea>
+            </div>
+          </div>
+          <div class="e-form__buttons elementor-field-group elementor-column elementor-col-100">
+            <div class="e-form__buttons__wrapper">
+              <button type="button" class="e-form__buttons__wrapper__button-prev">‹ Anterior</button>
+              <span class="e-form__step-meta">Paso 4 de 5</span>
+              <button type="button" class="elementor-button e-form__buttons__wrapper__button-next">Siguiente <span>›</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Step 5: Disponibilidad y autorizaciones ── -->
+        <div class="e-form__step" data-step-index="4">
+          <p class="e-form__step-title">Disponibilidad y autorizaciones</p>
+          <div class="elementor-form-fields-wrapper elementor-labels-above">
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-radio">
+              <label class="elementor-field-label">¿Tienes disponibilidad para participar en al menos el 80% de los encuentros? <abbr title="Obligatorio">*</abbr></label>
+              <div class="elementor-field-subgroup">
+                <label class="elementor-field-option">
+                  <input type="radio" name="form_fields[disponibilidad]" value="si" required>
+                  Sí, confirmo mi disponibilidad para los 100 días
+                </label>
+                <label class="elementor-field-option">
+                  <input type="radio" name="form_fields[disponibilidad]" value="parcial">
+                  Tengo algunas restricciones — las detallaré en el proceso de selección
+                </label>
+              </div>
+            </div>
+            <div class="elementor-field-group elementor-col-100 elementor-field-type-checkbox">
+              <label class="elementor-field-label">Autorizaciones <abbr title="Obligatorio">*</abbr></label>
+              <div class="elementor-field-subgroup">
+                <label class="elementor-field-option">
+                  <input type="checkbox" name="form_fields[datos]" value="acepto" required>
+                  Acepto el tratamiento de mis datos personales conforme a la Ley 1581 de 2012
+                </label>
+                <label class="elementor-field-option">
+                  <input type="checkbox" name="form_fields[imagen]" value="autorizo">
+                  Autorizo el uso de mi imagen en piezas de comunicación del programa 100×100
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="e-form__buttons elementor-field-group elementor-column elementor-col-100">
+            <div class="e-form__buttons__wrapper">
+              <button type="button" class="e-form__buttons__wrapper__button-prev">‹ Anterior</button>
+              <span class="e-form__step-meta">Paso 5 de 5</span>
+              <button type="submit" class="elementor-button elementor-button-submit">Enviar postulación →</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ── 07 FAQ ── -->
+  <section class="sec gradient-deep">
+    <div class="sec-head">
+      <span class="sec-eyebrow" style="color:rgba(255,255,255,0.7)">Preguntas frecuentes</span>
+      <h2 class="title" style="color:#fff">Aclaramos lo <span style="font-style:italic;color:#FFB48A">esencial</span>.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <span class="plus">−</span>
+        <div><h6>¿Cuál es el costo del programa?</h6><p class="a">La participación en 100×100 es gratuita gracias a sus aliados. Solo necesitamos tu tiempo, presencia y compromiso durante los 100 días.</p></div>
+      </div>
+      <div class="faq-item">
+        <span class="plus">+</span>
+        <div><h6>¿Necesito experiencia previa en liderazgo?</h6><p class="a">No buscamos credenciales — buscamos coherencia. Si ya estás sosteniendo un proceso comunitario en Medellín, este programa es para ti.</p></div>
+      </div>
+      <div class="faq-item">
+        <span class="plus">+</span>
+        <div><h6>¿Qué pasa si no puedo asistir a un encuentro?</h6><p class="a">El proceso es exigente en presencia. Si tienes alguna restricción, cuéntanoslo en la postulación para evaluarlo en conjunto.</p></div>
+      </div>
+      <div class="faq-item">
+        <span class="plus">+</span>
+        <div><h6>¿Habrá encuentros virtuales?</h6><p class="a">Sí. El proceso combina 5 encuentros presenciales, 4 virtuales y semanas de sostenimiento entre cada uno.</p></div>
+      </div>
+      <div class="faq-item">
+        <span class="plus">+</span>
+        <div><h6>¿Cuándo se anuncian los seleccionados?</h6><p class="a">El anuncio de los 100 líderes seleccionados será el 30 de mayo de 2026, junto con el evento de lanzamiento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 08 CTA FINAL ── -->
+  <section class="cta-final">
+    <h2>Súmate al <em>círculo</em>.<br>Postúlate hoy.</h2>
+    <p>El bienestar se construye en red. Sé parte de los 100 líderes que están transformando Medellín desde el cuidado.</p>
+    <div class="cta-row">
+      <a href="#form" class="btn primary lg">Quiero postularme <span class="arr">→</span></a>
+      <a href="#sobre" class="btn ghost lg" style="color:#fff;border-color:rgba(255,255,255,0.3)">Conoce más</a>
+    </div>
+  </section>
+
+  <!-- ── 09 CONTACTO ── -->
+  <section class="sec">
+    <div class="contact-card">
+      <h3>Contáctanos</h3>
+      <p>Si tienes alguna pregunta adicional, escríbenos.</p>
+      <form class="contact-form" onsubmit="return false">
+        <input type="text" placeholder="Nombre">
+        <input type="email" placeholder="Email">
+        <textarea rows="4" placeholder="Mensaje"></textarea>
+        <button type="submit" class="btn magenta lg submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── 10 FOOTER ── -->
+  <footer class="foot">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">100<span class="x">×</span>100</div>
+        <p>Programa gestado en El MED, liderado por Magna, monitoreado por Valor Sostenible, diseñado por Aldo Cívico, apoyado por Vibra en Alta y con impacto social de Selia y Oye.</p>
+      </div>
+      <div>
+        <h6>Navegar</h6>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre">Sobre el programa</a></li>
+          <li><a href="#convocatoria">Convocatoria</a></li>
+          <li><a href="#form">Postúlate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Aliados</h6>
+        <ul>
+          <li>Lidera · Vibra en Alta</li>
+          <li>Opera · Magna Comunicaciones</li>
+          <li>Mide · Valor Sostenible</li>
+          <li>Diseña · Aldo Cívico</li>
+          <li>Impacto · Selia + Oye</li>
+          <li>Aliado · HYBE</li>
+        </ul>
+      </div>
+      <div>
+        <h6>Contacto</h6>
+        <ul>
+          <li><a href="mailto:hola@100x100.med">hola@100x100.med</a></li>
+          <li><a href="tel:+5740000000">+57 (4) 000 0000</a></li>
+          <li><a href="#">@100x100.med</a></li>
+          <li><a href="#">Política de datos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 · Programa 100×100 · Medellín</span>
+      <span>Parte de El MED · somoselmed.com</span>
+    </div>
+  </footer>
+
+</div><!-- /.lp -->
+
+<script>
+  // ── Countdown ──
+  (function () {
+    var target = new Date('2026-05-25T23:59:59-05:00').getTime();
+    var els = { d: document.getElementById('cd-d'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m'), s: document.getElementById('cd-s') };
+    function tick() {
+      var diff = Math.max(0, target - Date.now());
+      var pad  = function(n) { return String(Math.floor(n)).padStart(2, '0'); };
+      els.d.textContent = pad(diff / 86400000);
+      els.h.textContent = pad((diff % 86400000) / 3600000);
+      els.m.textContent = pad((diff % 3600000)  / 60000);
+      els.s.textContent = pad((diff % 60000)    / 1000);
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+
+  // ── Elementor Steps Form ──
+  (function () {
+    var form        = document.querySelector('.elementor-form');
+    if (!form) return;
+    var steps       = Array.from(form.querySelectorAll('.e-form__step'));
+    var indicators  = Array.from(document.querySelectorAll('.e-form__indicators__indicator'));
+    var progressFill = document.querySelector('.form-progress-bar-fill');
+    var total       = steps.length;
+    var current     = 0;
+
+    function goto(idx) {
+      steps[current].classList.remove('e-form__step--active');
+      indicators[current] && indicators[current].classList.remove('e-form__indicators__indicator--state-active');
+      indicators[current] && indicators[current].classList.add('e-form__indicators__indicator--state-done');
+
+      current = idx;
+      steps[current].classList.add('e-form__step--active');
+      indicators.forEach(function(ind, i) {
+        ind.classList.toggle('e-form__indicators__indicator--state-active', i === current);
+        if (i < current) ind.classList.add('e-form__indicators__indicator--state-done');
+      });
+
+      if (progressFill) progressFill.style.width = ((current + 1) / total * 100) + '%';
+      document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    form.querySelectorAll('.e-form__buttons__wrapper__button-next').forEach(function(btn) {
+      btn.addEventListener('click', function() { if (current < total - 1) goto(current + 1); });
+    });
+    form.querySelectorAll('.e-form__buttons__wrapper__button-prev').forEach(function(btn) {
+      btn.addEventListener('click', function() { if (current > 0) goto(current - 1); });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      form.innerHTML = '<div style="padding:64px 36px;text-align:center"><p style="font-size:32px;font-weight:700;color:var(--magenta);letter-spacing:-0.02em;margin:0 0 12px">¡Postulación enviada!</p><p style="font-size:16px;color:var(--mute)">Gracias por postularte a 100×100. Te contactaremos pronto.</p></div>';
+    });
+  })();
+
+  // ── FAQ accordion ──
+  (function () {
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('.plus').textContent = '+';
+        });
+        if (!isOpen) { item.classList.add('open'); item.querySelector('.plus').textContent = '−'; }
+      });
+    });
+  })();
+
+  // ── Smooth scroll + active nav ──
+  (function () {
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href').slice(1);
+        var el = document.getElementById(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks  = document.querySelectorAll('.nav a');
+    new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id); });
+        }
+      });
+    }, { threshold: 0.4 }).observe && sections.forEach(function(s) {
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) navLinks.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id); });
+        });
+      }, { threshold: 0.4 }).observe(s);
+    });
+  })();
+</script>
+</body>
+</html>
