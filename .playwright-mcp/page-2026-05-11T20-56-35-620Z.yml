@@ -1,0 +1,426 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "100×100" [ref=e5] [cursor=pointer]:
+        - /url: "#inicio"
+        - img "100×100" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Inicio" [ref=e8] [cursor=pointer]:
+          - /url: "#inicio"
+        - link "Sobre el programa" [ref=e9] [cursor=pointer]:
+          - /url: "#sobre"
+        - link "Convocatoria" [ref=e10] [cursor=pointer]:
+          - /url: "#convocatoria"
+      - link "Postúlate →" [ref=e11] [cursor=pointer]:
+        - /url: "#form"
+        - text: Postúlate
+        - generic [ref=e12]: →
+  - generic [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - heading "100 líderes, 100 días. Una ciudad que se transforma desde el cuidado ." [level=1] [ref=e16]:
+          - text: 100 líderes,
+          - text: 100 días.
+          - generic [ref=e17]: Una ciudad que se transforma desde el cuidado .
+        - paragraph [ref=e18]: Muchos líderes llevan años sosteniendo procesos y personas sin espacios para detenerse, conectar y fortalecerse. Cien por cien nace para acompañar ese trabajo con herramientas prácticas, conexión y trabajo colectivo.
+        - generic [ref=e19]:
+          - link "Quiero participar →" [ref=e20] [cursor=pointer]:
+            - /url: "#form"
+            - text: Quiero participar
+            - generic [ref=e21]: →
+          - link "Conoce más" [ref=e22] [cursor=pointer]:
+            - /url: "#sobre"
+      - generic [ref=e23]:
+        - generic [ref=e24]: Medellín · 2026
+        - img "Liderazgo en Medellín" [ref=e25]
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]: GRATIS
+        - generic [ref=e29]: Postulación sin costo
+      - generic [ref=e30]:
+        - generic [ref=e31]: "100"
+        - generic [ref=e32]: Líderes seleccionados
+      - generic [ref=e33]:
+        - generic [ref=e34]: "100"
+        - generic [ref=e35]: Días de proceso
+      - generic [ref=e36]:
+        - generic [ref=e37]: "+5"
+        - generic [ref=e38]: Encuentros presenciales
+    - generic [ref=e39]:
+      - paragraph [ref=e40]: El bienestar no es individual. Se construye en red.
+      - paragraph [ref=e41]: Gestado en El MED, liderado por Magna, monitoreado por Valor Sostenible, diseñado por Aldo Cívico, apoyado por Vibra en Alta y con impacto social de Selia y Oye.
+  - generic [ref=e42]:
+    - generic [ref=e43]:
+      - generic [ref=e44]: cierre de convocatoria
+      - generic [ref=e45]:
+        - text: 25 de mayo ·
+        - emphasis [ref=e46]: quedan pocos días
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: "14"
+        - text: días
+      - generic [ref=e50]:
+        - generic [ref=e51]: "08"
+        - text: hrs
+      - generic [ref=e52]:
+        - generic [ref=e53]: "03"
+        - text: min
+      - generic [ref=e54]:
+        - generic [ref=e55]: "23"
+        - text: seg
+  - generic [ref=e56]:
+    - generic [ref=e57]:
+      - generic [ref=e58]: Sobre el programa
+      - heading "Cien por cien es un proceso de 100 días que reúne a líderes de Medellín que ya están sosteniendo procesos en sus comunidades." [level=2] [ref=e59]:
+        - emphasis [ref=e60]: Cien por cien es un proceso de 100 días
+        - text: que reúne a líderes de Medellín que ya están sosteniendo procesos en sus comunidades.
+      - paragraph [ref=e61]: No partimos de cero. Medellín ya está llena de personas que cuidan, organizan y movilizan. Este programa busca acompañarlas, conectarlas y fortalecer su trabajo.
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - paragraph [ref=e64]: No es un curso tradicional. Es un proceso práctico y colectivo .
+        - generic [ref=e65]:
+          - generic [ref=e66]: conversaciones guiadas
+          - generic [ref=e67]: herramientas prácticas
+          - generic [ref=e68]: ejercicios de liderazgo
+          - generic [ref=e69]: trabajo entre pares
+          - generic [ref=e70]: metodologías de escucha
+          - generic [ref=e71]: diseño de acciones
+          - generic [ref=e72]: acompañamiento aplicado
+      - generic [ref=e73]:
+        - paragraph [ref=e74]: Objetivos
+        - generic [ref=e75]:
+          - generic [ref=e76]: "01"
+          - generic [ref=e77]: Fortalecer habilidades de liderazgo desde el cuidado y el bienestar
+        - generic [ref=e78]:
+          - generic [ref=e79]: "02"
+          - generic [ref=e80]: Promover la salud mental como eje del trabajo comunitario
+        - generic [ref=e81]:
+          - generic [ref=e82]: "03"
+          - generic [ref=e83]: Activar redes de apoyo y colaboración en la ciudad
+        - generic [ref=e84]:
+          - generic [ref=e85]: "04"
+          - generic [ref=e86]: Impulsar acciones colectivas con impacto en territorio
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - paragraph [ref=e89]: Beneficios
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: "01"
+            - paragraph [ref=e93]: Formación experiencial con metodologías prácticas
+          - generic [ref=e94]:
+            - generic [ref=e95]: "02"
+            - paragraph [ref=e96]: Acompañamiento durante todo el proceso
+          - generic [ref=e97]:
+            - generic [ref=e98]: "03"
+            - paragraph [ref=e99]: Conexión con una red de líderes de la ciudad
+          - generic [ref=e100]:
+            - generic [ref=e101]: "04"
+            - paragraph [ref=e102]: Herramientas aplicables a procesos reales en comunidad
+      - img "100×100 Líderes" [ref=e104]
+    - generic [ref=e105]:
+      - generic [ref=e106]:
+        - 'heading "Cómo funciona: 5 pilares · 100 días" [level=3] [ref=e107]'
+        - paragraph [ref=e108]:
+          - text: Un proceso de 100 días que combina encuentros presenciales, espacios virtuales y momentos de aplicación real en territorio.
+          - text: El programa está dividido en Pilares, momentos clave
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]: I
+          - heading "Reconocer" [level=5] [ref=e112]
+          - paragraph [ref=e113]: Lo que somos y lo que cargamos.
+        - generic [ref=e114]:
+          - generic [ref=e115]: II
+          - heading "Sentir" [level=5] [ref=e116]
+          - paragraph [ref=e117]: Conectar con lo esencial.
+        - generic [ref=e118]:
+          - generic [ref=e119]: III
+          - heading "Imaginar" [level=5] [ref=e120]
+          - paragraph [ref=e121]: Nuevas formas de hacer comunidad.
+        - generic [ref=e122]:
+          - generic [ref=e123]: IV
+          - heading "Crear" [level=5] [ref=e124]
+          - paragraph [ref=e125]: Acciones concretas en territorio.
+        - generic [ref=e126]:
+          - generic [ref=e127]: V
+          - heading "Cuidar" [level=5] [ref=e128]
+          - paragraph [ref=e129]: Sostener lo construido en el tiempo.
+    - generic [ref=e130]:
+      - generic [ref=e131]:
+        - img "Aldo Cívico, Ph.D." [ref=e132]
+        - generic [ref=e133]: aldo cívico
+      - generic [ref=e134]:
+        - generic [ref=e135]: Diseño metodológico · Dirección académica
+        - heading "Aldo Cívico, Ph.D." [level=4] [ref=e136]
+        - paragraph [ref=e137]: Antropólogo sociocultural formado en la Universidad de Columbia y profesor en sus programas de Negociación y Resolución de Conflictos. Más de 30 años de experiencia en procesos de transformación social en contextos de alta complejidad.
+        - paragraph [ref=e138]: Su enfoque articula neurociencia, identidad, cuerpo y emoción para acompañar procesos de cambio profundo. En Cien por cien lidera la arquitectura metodológica del programa.
+  - generic [ref=e139]:
+    - generic [ref=e140]:
+      - generic [ref=e141]: A quién buscamos
+      - heading "Este programa es para ti si…" [level=2] [ref=e142]
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - paragraph [ref=e145]:
+          - text: Tienes la disposición de
+          - emphasis [ref=e146]: aprender y crecer
+          - text: en comunidad. Buscamos líderes auténticos, comprometidos con Medellín.
+        - paragraph [ref=e147]: No buscamos perfección. Buscamos coherencia, acción y compromiso con lo colectivo.
+        - heading "Requerimientos Clave" [level=3] [ref=e148]
+        - generic [ref=e149]:
+          - generic [ref=e150]: Vivir o incidir en Medellín
+          - generic [ref=e151]: Liderar un proceso comunitario activo
+          - generic [ref=e152]: Compromiso con el bienestar colectivo
+        - generic [ref=e153]:
+          - paragraph [ref=e154]: "Disponibilidad para los 100 días así:"
+          - generic [ref=e155]:
+            - group [ref=e156]:
+              - generic "Encuentros presenciales 5 jornadas · horarios diurnos ›" [ref=e157] [cursor=pointer]:
+                - generic [ref=e158]:
+                  - generic [ref=e159]: Encuentros presenciales
+                  - generic [ref=e160]: 5 jornadas · horarios diurnos
+                - generic [ref=e161]: ›
+            - group [ref=e162]:
+              - generic "Encuentros virtuales 4 sesiones · horarios diurnos ›" [ref=e163] [cursor=pointer]:
+                - generic [ref=e164]:
+                  - generic [ref=e165]: Encuentros virtuales
+                  - generic [ref=e166]: 4 sesiones · horarios diurnos
+                - generic [ref=e167]: ›
+            - group [ref=e168]:
+              - generic "Semanas de sostenimiento 4 semanas · práctica y acompañamiento ›" [ref=e169] [cursor=pointer]:
+                - generic [ref=e170]:
+                  - generic [ref=e171]: Semanas de sostenimiento
+                  - generic [ref=e172]: 4 semanas · práctica y acompañamiento
+                - generic [ref=e173]: ›
+          - generic [ref=e174]:
+            - generic [ref=e175]: ⚠️
+            - generic [ref=e176]: Es fundamental contar con disponibilidad para participar activamente en todas las fases del proceso durante los 100 días.
+      - generic [ref=e177]:
+        - heading "Tipos de liderazgo" [level=4] [ref=e178]
+        - paragraph [ref=e179]: Buscamos diversidad de perfiles y territorios.
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - generic [ref=e182]: LC
+            - generic [ref=e183]: Liderazgos comunitarios
+          - generic [ref=e184]:
+            - generic [ref=e185]: JL
+            - generic [ref=e186]: Jóvenes líderes
+          - generic [ref=e187]:
+            - generic [ref=e188]: AC
+            - generic [ref=e189]: Agentes culturales
+          - generic [ref=e190]:
+            - generic [ref=e191]: LS
+            - generic [ref=e192]: Líderes sociales
+          - generic [ref=e193]:
+            - generic [ref=e194]: CC
+            - generic [ref=e195]: Cuidadores de procesos colectivos
+    - generic [ref=e196]:
+      - heading "Criterios de selección" [level=4] [ref=e197]
+      - paragraph [ref=e198]: Así elegimos a los 100 líderes.
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e201]: Propósito y coherencia
+          - generic [ref=e205]: 20%
+        - generic [ref=e206]:
+          - generic [ref=e207]: Impacto
+          - generic [ref=e211]: 25%
+        - generic [ref=e212]:
+          - generic [ref=e213]: Conexión con Medellín
+          - generic [ref=e217]: 15%
+        - generic [ref=e218]:
+          - generic [ref=e219]: Colaboración y escucha
+          - generic [ref=e223]: 15%
+        - generic [ref=e224]:
+          - generic [ref=e225]: Apertura al aprendizaje
+          - generic [ref=e229]: 15%
+        - generic [ref=e230]:
+          - generic [ref=e231]: Continuidad
+          - generic [ref=e235]: 10%
+  - generic [ref=e236]:
+    - generic [ref=e237]:
+      - generic [ref=e238]: Cómo participar
+      - heading "Así puedes ser parte de Cien por cien." [level=2] [ref=e239]:
+        - text: Así puedes ser parte de
+        - emphasis [ref=e240]: Cien por cien
+        - text: .
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]: "01"
+        - heading "Inscripción" [level=5] [ref=e244]
+        - paragraph [ref=e245]: Completa el formulario de postulación. Cuéntanos quién eres, qué haces y por qué quieres ser parte.
+        - text: →
+      - generic [ref=e246]:
+        - generic [ref=e247]: "02"
+        - heading "Selección" [level=5] [ref=e248]
+        - paragraph [ref=e249]: Evaluamos perfiles según los seis criterios y seleccionamos a las 100 personas.
+        - text: →
+      - generic [ref=e250]:
+        - generic [ref=e251]: "03"
+        - heading "Formación" [level=5] [ref=e252]
+        - paragraph [ref=e253]: Vivirás 100 días junto a otros líderes. Encuentros presenciales, virtuales y semanas de sostenimiento.
+    - generic [ref=e254]:
+      - generic [ref=e255]:
+        - generic [ref=e256]: 15.05.26
+        - generic [ref=e257]: Lanzamiento de convocatoria
+        - generic [ref=e258]: fase 1
+      - generic [ref=e259]:
+        - generic [ref=e260]: 25.05.26
+        - generic [ref=e261]: Cierre de convocatoria
+        - generic [ref=e262]: cierre · hoy
+      - generic [ref=e263]:
+        - generic [ref=e264]: 30.05.26
+        - generic [ref=e265]: Anuncio de seleccionados · evento de lanzamiento
+        - generic [ref=e266]: fase 2
+      - generic [ref=e267]:
+        - generic [ref=e268]: 06.06.26
+        - generic [ref=e269]: Inicio del programa
+        - generic [ref=e270]: fase 3
+      - generic [ref=e271]:
+        - generic [ref=e272]: jun → ago
+        - generic [ref=e273]: Desarrollo del proceso · 5 ciclos
+        - generic [ref=e274]: fase 3
+      - generic [ref=e275]:
+        - generic [ref=e276]: 19.09.26
+        - generic [ref=e277]: Evento de cierre y graduación
+        - generic [ref=e278]: fase final
+  - generic [ref=e279]:
+    - generic [ref=e280]:
+      - generic [ref=e281]: Formulario
+      - heading "Postúlate a Cien por cien." [level=2] [ref=e282]
+      - paragraph [ref=e283]: Este puede ser un espacio para fortalecer lo que ya vienes construyendo. La postulación se diligencia en 5 pasos cortos.
+    - generic [ref=e284]:
+      - generic [ref=e285]:
+        - generic [ref=e286]:
+          - generic [ref=e287]: "1"
+          - generic [ref=e288]: Datos personales
+        - generic [ref=e289]: ›
+        - generic [ref=e290]:
+          - generic [ref=e291]: "2"
+          - generic [ref=e292]: Ubicación
+        - generic [ref=e293]: ›
+        - generic [ref=e294]:
+          - generic [ref=e295]: "3"
+          - generic [ref=e296]: Tu proceso
+        - generic [ref=e297]: ›
+        - generic [ref=e298]:
+          - generic [ref=e299]: "4"
+          - generic [ref=e300]: Motivación
+        - generic [ref=e301]: ›
+        - generic [ref=e302]:
+          - generic [ref=e303]: "5"
+          - generic [ref=e304]: Autorizaciones
+      - generic [ref=e308]:
+        - paragraph [ref=e309]: Datos personales
+        - generic [ref=e310]:
+          - generic [ref=e311]:
+            - generic [ref=e312]: Nombre completo *
+            - textbox "Nombre completo *" [ref=e313]:
+              - /placeholder: Ej. María Elena Restrepo
+          - generic [ref=e314]:
+            - generic [ref=e315]: Edad *
+            - spinbutton "Edad *" [ref=e316]
+          - generic [ref=e317]:
+            - generic [ref=e318]: Documento de identidad *
+            - textbox "Documento de identidad *" [ref=e319]:
+              - /placeholder: CC · 1.000.000.000
+          - generic [ref=e320]:
+            - generic [ref=e321]: Género (auto-identificación)
+            - textbox "Género (auto-identificación)" [ref=e322]:
+              - /placeholder: Como te identificas
+          - generic [ref=e323]:
+            - generic [ref=e324]: Teléfono *
+            - textbox "Teléfono *" [ref=e325]:
+              - /placeholder: +57 300 000 0000
+          - generic [ref=e326]:
+            - generic [ref=e327]: Correo electrónico *
+            - textbox "Correo electrónico *" [ref=e328]:
+              - /placeholder: tucorreo@dominio.com
+        - generic [ref=e330]:
+          - generic [ref=e331]: Paso 1 de 5
+          - button "Siguiente ›" [ref=e332] [cursor=pointer]
+  - generic [ref=e333]:
+    - generic [ref=e334]:
+      - generic [ref=e335]: Preguntas frecuentes
+      - heading "Aclaramos lo esencial." [level=2] [ref=e336]
+    - generic [ref=e337]:
+      - generic [ref=e338] [cursor=pointer]:
+        - generic [ref=e339]: −
+        - generic [ref=e340]:
+          - heading "¿Cuál es el costo del programa?" [level=6] [ref=e341]
+          - paragraph [ref=e342]: La participación en 100×100 es gratuita gracias a sus aliados. Solo necesitamos tu tiempo, presencia y compromiso durante los 100 días.
+      - generic [ref=e343] [cursor=pointer]:
+        - generic [ref=e344]: +
+        - heading "¿Necesito experiencia previa en liderazgo?" [level=6] [ref=e346]
+      - generic [ref=e347] [cursor=pointer]:
+        - generic [ref=e348]: +
+        - heading "¿Qué pasa si no puedo asistir a un encuentro?" [level=6] [ref=e350]
+      - generic [ref=e351] [cursor=pointer]:
+        - generic [ref=e352]: +
+        - heading "¿Habrá encuentros virtuales?" [level=6] [ref=e354]
+      - generic [ref=e355] [cursor=pointer]:
+        - generic [ref=e356]: +
+        - heading "¿Cuándo se anuncian los seleccionados?" [level=6] [ref=e358]
+  - generic [ref=e359]:
+    - heading "Súmate al círculo. Postúlate hoy." [level=2] [ref=e360]:
+      - text: Súmate al
+      - emphasis [ref=e361]: círculo
+      - text: .
+      - text: Postúlate hoy.
+    - paragraph [ref=e362]: El bienestar se construye en red. Sé parte de los 100 líderes que están transformando Medellín desde el cuidado.
+    - generic [ref=e363]:
+      - link "Quiero postularme →" [ref=e364] [cursor=pointer]:
+        - /url: "#form"
+        - text: Quiero postularme
+        - generic [ref=e365]: →
+      - link "Conoce más" [ref=e366] [cursor=pointer]:
+        - /url: "#sobre"
+  - generic [ref=e368]:
+    - heading "Contáctanos" [level=3] [ref=e369]
+    - paragraph [ref=e370]: Si tienes alguna pregunta adicional, escríbenos.
+    - generic [ref=e371]:
+      - textbox "Nombre" [ref=e372]
+      - textbox "Email" [ref=e373]
+      - textbox "Mensaje" [ref=e374]
+      - button "Enviar" [ref=e375] [cursor=pointer]
+  - contentinfo [ref=e376]:
+    - generic [ref=e377]:
+      - generic [ref=e378]:
+        - img "100×100" [ref=e380]
+        - paragraph [ref=e381]: Programa gestado en El MED, liderado por Magna, monitoreado por Valor Sostenible, diseñado por Aldo Cívico, apoyado por Vibra en Alta y con impacto social de Selia y Oye.
+      - generic [ref=e382]:
+        - heading "Navegar" [level=6] [ref=e383]
+        - list [ref=e384]:
+          - listitem [ref=e385]:
+            - link "Inicio" [ref=e386] [cursor=pointer]:
+              - /url: "#inicio"
+          - listitem [ref=e387]:
+            - link "Sobre el programa" [ref=e388] [cursor=pointer]:
+              - /url: "#sobre"
+          - listitem [ref=e389]:
+            - link "Convocatoria" [ref=e390] [cursor=pointer]:
+              - /url: "#convocatoria"
+          - listitem [ref=e391]:
+            - link "Postúlate" [ref=e392] [cursor=pointer]:
+              - /url: "#form"
+      - generic [ref=e393]:
+        - heading "Aliados" [level=6] [ref=e394]
+        - list [ref=e395]:
+          - listitem [ref=e396]: Lidera · Vibra en Alta
+          - listitem [ref=e397]: Opera · Magna Comunicaciones
+          - listitem [ref=e398]: Mide · Valor Sostenible
+          - listitem [ref=e399]: Diseña · Aldo Cívico
+          - listitem [ref=e400]: Impacto · Selia + Oye
+          - listitem [ref=e401]: Aliado · HYBE
+      - generic [ref=e402]:
+        - heading "Contacto" [level=6] [ref=e403]
+        - list [ref=e404]:
+          - listitem [ref=e405]:
+            - link "hola@100x100.med" [ref=e406] [cursor=pointer]:
+              - /url: mailto:hola@100x100.med
+          - listitem [ref=e407]:
+            - link "@100x100.med" [ref=e408] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e409]:
+            - link "Política de datos" [ref=e410] [cursor=pointer]:
+              - /url: "#"
+    - generic [ref=e411]:
+      - generic [ref=e412]: © 2026 · Programa cien por cien · Medellín
+      - generic [ref=e413]: Parte de El MED · somoselmed.com
